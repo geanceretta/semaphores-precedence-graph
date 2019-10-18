@@ -10,7 +10,7 @@ sem_t *mutex_a, *mutex_b, *semaphore_c;
 
 void* process_a(void* unused){
     printf("Starting process A\n");
-    sleep((rand()%4)+1);
+    //sleep((rand()%4)+1);
     printf("Stopping process A\n");
     sem_post(mutex_a);
     pthread_exit(NULL);
@@ -18,7 +18,7 @@ void* process_a(void* unused){
 
 void* process_b(void* unused){
     printf("Starting process B\n");
-    sleep((rand()%4)+1);
+    //sleep((rand()%4)+1);
     printf("Stopping process B\n");
     sem_post(mutex_b);
     pthread_exit(NULL);
@@ -28,7 +28,7 @@ void* process_c(void* unused){
     sem_wait(mutex_a);
     sem_wait(mutex_b);
     printf("Starting process C\n");
-    sleep((rand()%4)+1);
+    //sleep((rand()%4)+1);
     printf("Stopping process C\n");
     sem_post(semaphore_c);
     sem_post(semaphore_c);
@@ -38,7 +38,7 @@ void* process_c(void* unused){
 void* process_d(void* unused){
     sem_wait(semaphore_c);
     printf("Starting process D\n");
-    sleep((rand()%4)+1);
+    //sleep((rand()%4)+1);
     printf("Stopping process D\n");
     pthread_exit(NULL);
 }
@@ -46,7 +46,7 @@ void* process_d(void* unused){
 void* process_e(void* unused){
     sem_wait(semaphore_c);
     printf("Starting process E\n");
-    sleep((rand()%4)+1);
+    //sleep((rand()%4)+1);
     printf("Stopping process E\n");
     pthread_exit(NULL);
 }
